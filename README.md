@@ -10,11 +10,13 @@ It support running your code in build ci and your local environment.
 
 ### Local
 Before running, please install the dependencies.
-$ npm install 
+
+``$ npm install ``
 
 Running in locally
-$ npm test
+
+``$ npm test``
 
 
 ### CI 
-$ ./ci_docker.sh
+``$ ./ci_docker.sh``
