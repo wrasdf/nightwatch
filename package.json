@@ -4,7 +4,7 @@
   "description": "E2E test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nightwatch tests/test_*.js"
   },
   "keywords": [
     "e2e",
@@ -13,8 +13,6 @@
   "author": "kerry.wang",
   "license": "ISC",
   "devDependencies": {
-    "chromedriver": "^2.25.1",
-    "selenium-server-standalone": "^2.53.1",
-    "selenium-standalone": "^5.8.0"
+    "chromedriver": "^2.25.1"
   }
 }

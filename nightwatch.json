@@ -7,21 +7,12 @@
   "globals_path" : "./tests/globals.js",
 
   "selenium" : {
-    "start_process" : false,
-    "server_path" : "./node_modules/selenium-server-standalone/index.jar",
-    "log_path" : "",
-    "port" : 4444,
-    "cli_args" : {
-      "webdriver.chrome.driver" : "./node_modules/chromedriver/bin/chromedriver",
-      "webdriver.gecko.driver" : "",
-      "webdriver.edge.driver" : ""
-    }
+    "start_process" : false
   },
 
   "test_settings" : {
     "default" : {
-      "launch_url" : "http://localhost",
-      "selenium_port"  : 4444,
+      "selenium_port"  : 9515,
       "selenium_host"  : "localhost",
       "default_path_prefix" : "",
       "silent": true,
