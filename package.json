@@ -4,13 +4,15 @@
   "description": "E2E test",
   "main": "index.js",
   "scripts": {
+    "dependency": "npm install nightwatch -g",
+    "background-runner": "nohup /usr/bin/Xvfb :99 -screen 0 1280x1024x24 &",
     "test": "nightwatch tests/test_*.js"
   },
   "keywords": [
     "e2e",
     "test"
   ],
-  "author": "kerry.wang",
+  "author": "kerry.wang@myob.com",
   "license": "ISC",
   "devDependencies": {
     "chromedriver": "^2.25.1"

@@ -1,3 +1,6 @@
 .DS_Store
 node_modules
 reports
+.com.google*
+.org*
+nohup.out

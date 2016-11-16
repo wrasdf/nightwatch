@@ -27,6 +27,9 @@
         },
         "acceptSslCerts": true,
         "marionette": true
+      },
+      "globals": {
+          "integration":true
       }
     },
 
