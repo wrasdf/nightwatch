@@ -9,7 +9,7 @@ module.exports = {
       .waitForElementVisible('button[name=btnG]', 1000)
       .click('button[name=btnG]')
       .pause(1000)
-      .assert.containsText('#ires .g:first-child h3',
+      .assert.containsText('#rso .g:first-child h3',
         'Rembrandt - Wikipedia')
       .end();
   }

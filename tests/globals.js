@@ -3,7 +3,10 @@ var path = require('path');
 var driverInstanceCI;
 
 function isRunningInCI() {
-  return this.test_settings.globals.integration;
+  if (process.env.ENV == 'CI'){
+    return true;
+  }
+  return false;
 }
 
 function startChromeDriver() {
@@ -26,19 +29,12 @@ function stopChromeDriver() {
 }
 
 module.exports = {
-  'ci-server' : {
-    integration : true
-  },
-
   before : function(done) {
     startChromeDriver.call(this);
-
     done();
   },
-
   after : function(done) {
     stopChromeDriver.call(this);
-
     done();
   }
 };

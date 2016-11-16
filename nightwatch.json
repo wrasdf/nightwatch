@@ -16,10 +16,6 @@
       "selenium_host"  : "localhost",
       "default_path_prefix" : "",
       "silent": true,
-      "screenshots" : {
-        "enabled" : true,
-        "path" : ""
-      },
       "desiredCapabilities": {
         "browserName": "chrome",
         "chromeOptions" : {
@@ -27,21 +23,6 @@
         },
         "acceptSslCerts": true,
         "marionette": true
-      },
-      "globals": {
-          "integration":true
-      }
-    },
-
-    "chrome" : {
-      "desiredCapabilities": {
-        "browserName": "chrome"
-      }
-    },
-
-    "edge" : {
-      "desiredCapabilities": {
-        "browserName": "MicrosoftEdge"
       }
     }
   }
