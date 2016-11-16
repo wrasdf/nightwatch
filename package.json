@@ -1,15 +1,16 @@
 {
   "name": "nightwatch",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "E2E test",
-  "main": "index.js",
   "scripts": {
     "test_ci": "./background_runner.sh && ENV=CI nightwatch tests/test_*.js",
     "test": "nightwatch tests/test_*.js"
   },
   "keywords": [
     "e2e",
-    "test"
+    "test",
+    "nightwatch",
+    "chromedriver"
   ],
   "author": "kerry.wang@myob.com",
   "license": "ISC",
