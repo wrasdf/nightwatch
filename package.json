@@ -13,7 +13,6 @@
     "chromedriver"
   ],
   "author": "kerry.wang@myob.com",
-  "license": "ISC",
   "devDependencies": {
     "chromedriver": "^2.25.1"
   }
