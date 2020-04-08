@@ -53,6 +53,17 @@ services:
     volumes:
       - /dev/shm:/dev/shm
 
+  opera:
+    image: selenium/node-opera:4.0.0
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      <<: *HubENV
+
   chrome-debug:
     image: selenium/node-chrome-debug:3.9.1
     depends_on:

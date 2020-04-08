@@ -37,6 +37,11 @@
         "browserName": "firefox"
       }
     },
+    "opera": {
+      "desiredCapabilities": {
+        "browserName": "opera"
+      }
+    },
     "chrome-debug" : {
       "desiredCapabilities": {
         "browserName": "chrome",

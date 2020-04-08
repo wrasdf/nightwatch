@@ -4,7 +4,7 @@
   "license": "MIT",
   "description": "E2E test",
   "scripts": {
-    "test": "nightwatch -e chrome,firefox tests/test_*.js"
+    "test": "nightwatch -e chrome,firefox,opera tests/test_*.js"
   },
   "keywords": [
     "e2e",
