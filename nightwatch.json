@@ -11,9 +11,11 @@
   "test_settings" : {
     "default" : {
       "selenium_port"  : 4444,
-      "selenium_host"  : "hub",
+      "selenium_host"  : "selenium-hub",
       "desiredCapabilities": {
-        "browserName": "chrome"
+        "browserName": "chrome",
+        "javascriptEnabled" : true,
+        "acceptSslCerts" : true
       },
       "screenshots" : {
         "enabled" : true,
@@ -23,7 +25,11 @@
     },
     "chrome" : {
       "desiredCapabilities": {
-        "browserName": "chrome"
+        "browserName": "chrome",
+        "chromeOptions": {
+          "args" : ["--no-sandbox"],
+          "w3c": false
+        }
       }
     },
     "firefox" : {
@@ -33,7 +39,11 @@
     },
     "chrome-debug" : {
       "desiredCapabilities": {
-        "browserName": "chrome"
+        "browserName": "chrome",
+        "chromeOptions": {
+          "args" : ["--no-sandbox"],
+          "w3c": false
+        }
       }
     },
     "firefox-debug" : {

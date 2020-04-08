@@ -10,5 +10,7 @@ sh:
 
 ut:
 	docker-compose kill && docker-compose rm -vf
-	$(DCB) hub nightwatch chrome firefox
+	$(DCB) selenium-hub nightwatch chrome firefox chrome-debug firefox-debug
+	docker-compose up --remove-orphans -d selenium-hub chrome firefox
+	sleep 5
 	docker-compose up nightwatch

@@ -16,66 +16,79 @@ services:
     entrypoint:
       - bash
 
-  hub:
+  selenium-hub:
     image: selenium/hub:3.9.1
     environment:
       GRID_BROWSER_TIMEOUT: 120000
       GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
       GRID_NODE_POLLING: 300
       GRID_TIMEOUT: 120000
+      JAVA_OPTS: -Xmx512m
+    ports:
+     - "4444:4444"
     networks:
       - nightwatch-docker-grid-network
-    logging: &LOG
-      options:
-        max-file: '5'
-        max-size: 1m
 
   nightwatch:
     <<: *base
     command: yarn test
-    environment: &SELENIUM_NODE_ENV
-      HUB_PORT_4444_TCP_ADDR: hub
+    environment: &HubENV
+      HUB_HOST: selenium-hub
+      HUB_PORT: 4444
     depends_on:
-      - hub
+      - selenium-hub
       - chrome
       - firefox
     networks:
       - nightwatch-docker-grid-network
-    logging: *LOG
 
   chrome:
-    image: selenium/node-chrome:4.0.0
+    image: selenium/node-chrome:3.9.1
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
     environment:
-      <<: *SELENIUM_NODE_ENV
-    logging: *LOG
+      <<: *HubENV
+    volumes:
+      - /dev/shm:/dev/shm
 
   chrome-debug:
     image: selenium/node-chrome-debug:3.9.1
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
     environment:
-      <<: *SELENIUM_NODE_ENV
+      <<: *HubENV
     ports:
       - "5900:5900"
     networks:
       - nightwatch-docker-grid-network
-    logging: *LOG
 
   firefox:
-    image: selenium/node-firefox:4.0.0
+    image: selenium/node-firefox:3.9.1
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
     environment:
-      <<: *SELENIUM_NODE_ENV
+      <<: *HubENV
     networks:
       - nightwatch-docker-grid-network
-    logging: *LOG
 
   firefox-debug:
     image: selenium/node-firefox-debug:3.9.1
+    depends_on:
+      - selenium-hub
+    volumes:
+      - /dev/shm:/dev/shm
     environment:
-      <<: *SELENIUM_NODE_ENV
+      <<: *HubENV
     ports:
       - "5901:5900"
     networks:
       - nightwatch-docker-grid-network
-    logging: *LOG
 
 networks:
   nightwatch-docker-grid-network:
