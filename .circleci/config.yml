@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  ut:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: E2E Test
+          command: |
+            make ut
+
+workflows:
+  version: 2
+  untagged-build:
+    jobs:
+      - ut

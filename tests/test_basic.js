@@ -1,16 +1,16 @@
-module.exports = {
-  'Demo test Google' : function (client) {
-    client
-      .url('http://www.google.com')
-      .waitForElementVisible('body', 1000)
-      .assert.title('Google')
-      .assert.visible('input[type=text]')
-      .setValue('input[type=text]', 'rembrandt van rijn')
-      .waitForElementVisible('button[name=btnG]', 1000)
-      .click('button[name=btnG]')
-      .pause(1000)
-      .assert.containsText('#rso .g:first-child h3',
-        'Rembrandt - Wikipedia')
+
+describe('Ecosia', function() {
+
+  test('navigate to ecosia.org', function(browser) {
+    browser
+      .url('https://www.ecosia.org/')
+      .waitForElementVisible('body')
+      .assert.titleContains('Ecosia')
+      .assert.visible('input[type=search]')
+      .setValue('input[type=search]', 'nightwatch')
+      .click('button[type=submit]')
+      .assert.containsText('.mainline-results', 'Nightwatch.js')
       .end();
-  }
-};
+  });
+
+});

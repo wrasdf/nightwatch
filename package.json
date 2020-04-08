@@ -1,19 +1,20 @@
 {
   "name": "nightwatch",
   "version": "1.0.2",
+  "license": "MIT",
   "description": "E2E test",
   "scripts": {
-    "test_ci": "./background_runner.sh && ENV=CI nightwatch tests/test_*.js",
-    "test": "nightwatch tests/test_*.js"
+    "test": "nightwatch -e firefox,chrome tests/test_*.js"
   },
   "keywords": [
     "e2e",
     "test",
     "nightwatch",
-    "chromedriver"
+    "chrome",
+    "firefox"
   ],
-  "author": "kerry.wang@myob.com",
+  "author": "wrasdf@gmail.com",
   "devDependencies": {
-    "chromedriver": "^80.0.2"
+    "nightwatch-html-reporter": "^2.0.6"
   }
 }
